@@ -1,0 +1,356 @@
+/* Основные настройки */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a2b3c;
+    color: #e0e6ed;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Шапка */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #3a5a78;
+}
+
+h1 {
+    color: #d4af37;
+    font-weight: 600;
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #a8b8c8;
+    font-size: 1.1em;
+}
+
+/* Поляроидное фото */
+.polaroid-photo {
+    margin: 40px auto;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.polaroid-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: white;
+    padding: 15px 15px 60px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transform: rotate(-2deg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.polaroid-photo img:hover {
+    transform: rotate(-1deg) scale(1.02);
+}
+
+.polaroid-label {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 80%;
+    height: 25px;
+    background: #f5f5f5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Секции с каруселями */
+.friends-section {
+    background: rgba(26, 43, 60, 0.8);
+    border-radius: 8px;
+    padding: 30px;
+    margin: 40px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #3a5a78;
+}
+
+.friends-section h2 {
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Общие стили каруселей */
+.carousel {
+    position: relative;
+    margin: 0 auto;
+    max-width: 650px;
+}
+
+.carousel-content {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    min-height: 250px; /* Фиксированная высота для стабильности */
+}
+
+/* Унифицированные стили карточек */
+.friend-card {
+    min-width: 100%;
+    padding: 0;
+    display: none;
+    animation: fadeIn 0.7s ease;
+}
+
+.friend-card.active {
+    display: block;
+}
+
+.friend-words,
+.friend-story,
+.friend-wish {
+    font-style: normal;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #e0e6ed;
+    background: rgba(58, 90, 120, 0.3);
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 3px solid #d4af37;
+    margin: 0;
+    text-align: left;
+}
+
+.friend-name {
+    color: #d4af37;
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 1em;
+    text-align: right;
+    padding-right: 10px;
+}
+
+/* Карусель с фото - оригинальный размер */
+.friend-photo {
+    min-width: 100%;
+    padding: 10px;
+    display: none;
+    animation: fadeIn 0.7s ease;
+    text-align: center; /* Центрируем фото */
+}
+
+.friend-photo.active {
+    display: block;
+}
+
+.friend-photo img {
+    width: auto; /* Убираем фиксированную ширину */
+    max-width: 100%; /* Ограничиваем максимальную ширину */
+    height: auto; /* Сохраняем пропорции */
+    max-height: 80vh; /* Максимальная высота - 80% от высоты экрана */
+    object-fit: contain; /* Вместо cover - чтобы все изображение было видно */
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 auto; /* Центрируем по горизонтали */
+}
+
+.photo-caption {
+    color: #a8b8c8;
+    font-size: 0.95em;
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Кнопки карусели */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(212, 175, 55, 0.7);
+    border: none;
+    color: #0a192f;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-button:hover {
+    background: #d4af37;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev {
+    left: -50px;
+}
+
+.carousel-button.next {
+    right: -50px;
+}
+
+/* Точки-индикаторы */
+.carousel-dots {
+    text-align: center;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: #d4af37;
+    transform: scale(1.2);
+}
+
+/* Стили для видео */
+.friend-video {
+    min-width: 100%;
+    padding: 10px;
+    display: none;
+    animation: fadeIn 0.7s ease;
+    text-align: center;
+}
+
+.friend-video.active {
+    display: block;
+}
+
+.friend-video video {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 70vh;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: #000;
+}
+
+.video-caption {
+    color: #a8b8c8;
+    font-size: 0.95em;
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Блок поздравления */
+.congratulation {
+    background: rgba(26, 43, 60, 0.9);
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #3a5a78;
+}
+
+.message p {
+    margin: 18px 0;
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+
+.sign {
+    text-align: right;
+    color: #d4af37;
+    margin-top: 30px;
+    font-weight: 500;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .carousel-button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .carousel-button.prev {
+        left: -20px;
+    }
+    
+    .carousel-button.next {
+        right: -20px;
+    }
+    
+    .friends-section {
+        padding: 20px;
+    }
+    
+    .friend-words,
+    .friend-story,
+    .friend-wish {
+        padding: 15px;
+        font-size: 1em;
+    }
+    
+    .carousel-content {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .friend-words,
+    .friend-story,
+    .friend-wish {
+        padding: 12px;
+        font-size: 0.95em;
+    }
+    
+    .friend-name {
+        font-size: 0.9em;
+    }
+    
+    .friend-photo img {
+        max-height: 300px;
+    }
+    
+    .friends-section h2 {
+        font-size: 1.3em;
+    }
+}
